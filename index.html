@@ -21,7 +21,7 @@
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap');
         
         select {
             -webkit-appearance: none;
@@ -35,12 +35,19 @@
             -webkit-print-color-adjust: exact;
         }
         
+        select option {
+            background: #f0f0f3;
+            border-radius: 8px;
+            margin: 2px 0;
+            padding: 5px 10px;
+        }
+        
         select::-ms-expand {
             display: none;
         }
         body {
             background-color: #f0f0f3;
-            font-family: 'Manrope', sans-serif;
+            font-family: 'Bricolage Grotesque', sans-serif;
             min-height: 100vh;
         }
         .prompt-card {
@@ -61,14 +68,13 @@
     </style>
 </head>
 <body class="gradient-bg min-h-screen p-6">
-    <div class="max-w-4xl mx-auto">
-        <header class="text-center mb-12 p-8 rounded-2xl bg-f0f0f3">
-            <h1 class="text-4xl font-bold text-gray-800 mb-3 tracking-tight">Flux Photorealism<br>Prompt Generator</h1>
-            <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-purple-300 mx-auto mb-4 rounded-full"></div>
-            <p class="text-lg font-medium text-gray-600">Optimized prompt builder for photorealistic outputs</p>
+    <div class="w-full px-4">
+        <header class="text-center mb-12">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2 tracking-tight">Flux Photorealism Prompt Generator</h1>
+            <p class="text-gray-600 tracking-normal">Optimized prompt builder for photorealistic outputs</p>
         </header>
 
-        <div class="grid gap-8 md:grid-cols-2">
+        <div class="grid gap-8 lg:grid-cols-2 max-w-6xl mx-auto">
             <!-- Input Section -->
             <div class="bg-white rounded-xl p-6 prompt-card">
                 <h2 class="text-xl font-semibold mb-4 text-gray-800">Prompt Construction</h2>
@@ -150,7 +156,7 @@
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Film Type</label>
-                            <select id="filmType" class="w-full px-4 py-3 bg-f0f0f3 text-gray-800 rounded-xl shadow-inset focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-200 border-0">
+                            <select id="filmType" class="w-full px-4 py-3 bg-f0f0f3 text-gray-800 rounded-xl shadow-inset focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-200 border-0 [&>option]:hover:bg-purple-100">
                                 <option value="Kodak Portra 400" selected class="bg-f0f0f3 text-gray-800">Kodak Portra 400</option>
                                 <option value="Kodak Ektar 100">Kodak Ektar 100</option>
                                 <option value="Fuji Pro 400H">Fuji Pro 400H</option>
@@ -201,7 +207,7 @@
                     </div>
                 </div>
 
-                <button onclick="generatePrompt()" class="mt-6 w-full bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-semibold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300">
+                <button onclick="generatePrompt()" class="mt-6 w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-6 rounded-md transition duration-150 ease-in-out">
                     Generate Photorealistic Prompt
                 </button>
             </div>
@@ -215,7 +221,7 @@
                     </button>
                 </div>
                 
-                <div id="output" class="bg-white bg-opacity-20 text-white p-4 rounded-lg h-64 overflow-y-auto font-mono backdrop-blur-sm">
+                <div id="output" class="bg-gray-50 p-4 rounded-md border border-gray-200 h-64 overflow-y-auto">
                     <p class="text-gray-500 text-center mt-12">Your optimized Flux photorealistic prompt will appear here</p>
                 </div>
                 
